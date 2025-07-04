@@ -17,7 +17,7 @@
     name: expense
 
 - name: includ from common role
-  ansible.builtin.include_role:
+  include_role:
     name: common
     tasks_from: main
 
@@ -50,11 +50,11 @@
   - PyMySQL
   - cryptography
 
-- name: copy backend.service
+- name: copy backend service
   ansible.builtin.template:
     src: backend.service.j2
     dest: /etc/systemd/system/backend.service
-    remote_src: yes
+    
 
 - name: import mysql data
   community.mysql.mysql_db:
